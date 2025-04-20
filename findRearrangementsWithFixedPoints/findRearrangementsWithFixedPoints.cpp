@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
+#include <fstream>
+#include <locale>
 #include "functions.h"
 
 using namespace std;
@@ -75,8 +77,31 @@ void generate_rearrangements(vector<int>& current_permutation, int index, vector
 
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+    setlocale(LC_ALL, "Rus");
+
+    vector<string> file_content;
+
+    //если передается не 3 параметра как положено
+    if (argc != 3)
+    {
+        cerr << "Неправильно указаны параметры запуска. "
+            "Убедитесь, что параметры соответствуют шаблону: \n"
+            << argv[0] << "<path/to/input_file> <path/to/save_file>\n";
+        return 1;
+    }
+
+    //объявление входных и выходных файлов
+    ifstream input_file(argv[1]);
+    ofstream output_file(argv[2]);
+
+    if (!input_file.is_open())
+    {
+        cerr << "Неверно указан файл с входными данными. Возможно, файл не существует." << argv[1] << '\n';
+        return 1;
+    }
+
     //вызов функции по обработке входного файла
     //вызов главной рекурсивной вычислительной функции
     // 
