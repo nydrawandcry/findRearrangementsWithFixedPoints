@@ -10,7 +10,7 @@ using namespace std;
 * \return true - входной файл удалось открыть и считать из него данные
 * \return false - входной файл не удалось открыть и/или считать из него данные
 */
-bool readFile(const string& input_file_path, vector<string>& file_content);
+bool readFile(ifstream& input_file, vector<string>& file_content);
 
 /*рекурсивная главная вычислительная функция
 * \param[in] current_permutation - текущая перестановка которую мы собираем
