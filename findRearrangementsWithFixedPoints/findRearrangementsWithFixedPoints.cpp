@@ -2,29 +2,32 @@
 #include <vector>
 #include <fstream>
 #include <locale>
+#include <string>
 #include "functions.h"
 
 using namespace std;
 
 bool readFile(ifstream& input_file, vector<string>& file_content)
 {
-    //1.1.Если входной невозможно открыть
+    string input_line;
+
+    //считываем построчно данные из файла до коцна файла
+    while (getline(input_file, input_line))
     {
-        //1.1.1.Проверить, доступен ли к открытию выходной файл.Если доступен
-        {
-            //1.1.1.1.Занести ошибку об отсутствии доступа к файлу «имя файла» в файл
-        }
-        //1.1.2.Иначе
-        {
-            //1.1.2.1.Вывести ошибку о невозможности открыть выходной и входной файл в стандартный поток ошибок
-        }
+        file_content.push_back(input_line);
     }
-    //1.2.Иначе
+
+    //после считывания закрываем файл
+    input_file.close();
+
+    //проверка, удалось ли загрузить данные из файла
+    if (!file_content.empty())
     {
-        //1.2.1.Для каждой строки файла
-        //1.2.1.1.Считать строку из файла в переменные
-        //1.2.2.Закрыть файл
+        return true;
     }
+
+    //если не получилось считать данные, возвращаем "неудачу" о записи файла
+    return false;
 }
 
 void generate_rearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
@@ -105,7 +108,7 @@ int main(int argc, char* argv[])
         //вывести ошибку о невозможности записи из файла
     }
     
-    //обработать данные, полученные из входного файла
+    //обработать данные
 
     //вызов функции по обработке входного файла
     //вызов главной рекурсивной вычислительной функции
