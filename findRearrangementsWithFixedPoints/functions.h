@@ -12,6 +12,13 @@ using namespace std;
 */
 bool readFile(ifstream& input_file, vector<string>& file_content);
 
+/* функция для обработки строки на корректный ввод
+* \param[in] input_string - строка, которую мы проверяем на корректность
+* \return true - данные введены корректно
+* \return false - данные введены некорректно 
+*/
+bool validateInputData(string input_string);
+
 /*рекурсивная главная вычислительная функция
 * \param[in] current_permutation - текущая перестановка которую мы собираем
 * \param[in] index - позиция элемента которую мы рассматриваем на текущий момент
