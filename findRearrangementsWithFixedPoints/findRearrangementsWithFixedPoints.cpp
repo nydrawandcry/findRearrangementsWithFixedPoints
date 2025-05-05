@@ -30,8 +30,12 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
     return false;
 }
 
-bool validateInputData(string input_string)
+bool validateInputData(string input_string, vector<string> tokens)
 {
+    //необходимо разбить строку на смиволы, слова и корректные разделители
+        //input_string_tokens = tokenize(input_string);
+
+    //а дальше уже проверка
     //если строка введена по корректному шаблону: "n= <число>, k= <число>"
         //здесь будет посимвольная проверка строки на корректность строки
     {

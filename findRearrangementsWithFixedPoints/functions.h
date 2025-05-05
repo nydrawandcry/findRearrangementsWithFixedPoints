@@ -17,7 +17,7 @@ bool readFile(ifstream& input_file, vector<string>& file_content);
 * \return true - данные введены корректно
 * \return false - данные введены некорректно 
 */
-bool validateInputData(string input_string);
+bool validateInputData(string input_string, vector<string> tokens);
 
 /*рекурсивная главная вычислительная функция
 * \param[in] current_permutation - текущая перестановка которую мы собираем
