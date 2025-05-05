@@ -30,6 +30,17 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
     return false;
 }
 
+bool validateInputData(string input_string)
+{
+    //если строка введена по корректному шаблону: "n= <число>, k= <число>"
+        //здесь будет посимвольная проверка строки на корректность строки
+    {
+        return true;
+    }
+
+    return false;
+}
+
 void generate_rearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
 {
     //Если перестановка уже полностью заполнена и в ней присутствует заданное количество неподвижных точек
