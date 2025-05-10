@@ -36,7 +36,7 @@ vector<string> tokenizeString(string& input_string);
 * \return true - данные введены корректно
 * \return false - данные введены некорректно 
 */
-bool validateInputData(string input_string, vector<string> tokens);
+DataErrors validateInputData(string input_string, vector<string> tokens);
 
 /*рекурсивная главная вычислительная функция
 * \param[in] current_permutation - текущая перестановка которую мы собираем
