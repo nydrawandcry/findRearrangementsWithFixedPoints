@@ -33,16 +33,52 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
 bool validateInputData(string input_string, vector<string> tokens)
 {
     //необходимо разбить строку на смиволы, слова и корректные разделители
-        //input_string_tokens = tokenize(input_string);
+    tokens = tokenizeString(input_string);
 
-    //а дальше уже проверка
-    //если строка введена по корректному шаблону: "n= <число>, k= <число>"
-        //здесь будет посимвольная проверка строки на корректность строки
+    //если количество элементов строки некорректно (должно быть равно 7)
+    if (tokens.size() != 7)
     {
-        return true;
+        return false;
     }
 
-    return false;
+    //если строка не соответствует шаблону ввода
+    if (tokens[0] != "n" || tokens[1] != "=" || tokens[3] != "," || tokens[4] != "k" || tokens[5] != "=")
+    {
+        return false;
+    }
+
+    //если элемент, с которого считывается значения для размера перестановки, пуст
+    if (tokens[2].empty())
+    {
+        return false;
+    }
+
+    //если элемент, с которого считывается значения для размера перестановки, не равен целочисленному значению
+    for (char c : tokens[2])
+    {
+        if (!isdigit(c))
+        {
+            return false;
+        }
+    }
+
+    //если элемент, с которого считывается количество неподвижных точек в перестановке, пуст
+    if (tokens[6].empty())
+    {
+        return false;
+    }
+
+    //если элемент, с которого считывается количество неподвижных точек в перестановке, не равен целочисленному значению
+    for (char c : tokens[6])
+    {
+        if (!isdigit(c))
+        {
+            return false;
+        }
+    }
+
+    //если все хорошо, считаем, что строка обработана успешно и всё корректно
+    return true;
 }
 
 void generate_rearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
