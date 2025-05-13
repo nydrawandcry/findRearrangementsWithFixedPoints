@@ -215,9 +215,28 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    //обработать данные
-        //для обработки данных нужна функция на обработку строки которую мы берем чтобы считать данные
-        //может быть validateInputData(input_string)?
+    vector<string> splited_string;
+
+    DataErrors check_input = validateInputData(file_content[0], splited_string);
+
+    if (check_input == TOO_MANY_SYMBOLS)
+    {
+        cerr << "Некорректное количество элементов в строке. \nОжидаемое количество: 7 \nПолученное количество: " << splited_string.size() << endl;
+
+        return 1;
+    }
+    else if (check_input == WRONG_INPUT)
+    {
+        cerr << "Строка с данными не соответствует шаблону \"n = <число>, k = <число>\". Введите корректную строку. " << endl;
+
+        return 1;
+    }
+    else if (check_input == NO_INT)
+    {
+        cerr << "Значения переменных не целые числа. \nВведите значения переменных в формате целого числа" << endl;
+
+        return 1;
+    }
 
     //вызов функции по обработке входного файла
     //вызов главной рекурсивной вычислительной функции
