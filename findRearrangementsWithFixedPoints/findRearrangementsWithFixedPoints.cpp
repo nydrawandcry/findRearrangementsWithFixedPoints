@@ -32,32 +32,47 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
 
 vector<string> splitString(string& input_string)
 {
+    vector<string> splited_string;
+    string current_symbol;
+
     //для всей строки
+    for (char c : input_string)
     {
         //если символ число или буква
+        if (isalnum(c))
         {
             //начинаем выделять отдельный элемент строки
+            current_symbol += c;
         }
         //если символ не число или буква
+        if (!isalnum(c))
         {
             //если уже начали выделять отдельный элемент строки
+            if (!current_symbol.empty())
             {
                 //добавляем отделенный элемент строки в контейнер с разделенными элементами 
                     // и очищаем текущий отделенный элемент для следующего отделения нового элемента
+                splited_string.push_back(current_symbol);
+                current_symbol.clear();
             }
             //если перед нами белый разделитель (табуляция или пробел)
+            if (c != ' ' && c != '\t')
             {
                 //добавляем отделенный элемент строки в контейнер с разделенными элементами и пропускаем белые разделители
+                splited_string.push_back(string(1, c));
             }
         }
     }
 
     //если после обхода всей строки еще остался отделенный элемент строки
+    if (!current_symbol.empty())
     {
         //добавляем последний элемент
+        splited_string.push_back(current_symbol);
     }
 
     //возвращаем контейнер со всеми разделенными элементами строки
+    return splited_string;
 }
 
 DataErrors validateInputData(string input_string, vector<string> string_elements)
