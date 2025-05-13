@@ -30,7 +30,7 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
     return false;
 }
 
-vector<string> tokenizeString(string& input_string)
+vector<string> splitString(string& input_string)
 {
     //для всей строки
     {
@@ -60,31 +60,31 @@ vector<string> tokenizeString(string& input_string)
     //возвращаем контейнер со всеми разделенными элементами строки
 }
 
-DataErrors validateInputData(string input_string, vector<string> tokens)
+DataErrors validateInputData(string input_string, vector<string> string_elements)
 {
     //необходимо разбить строку на смиволы, слова и корректные разделители
-    tokens = tokenizeString(input_string);
+    string_elements = splitString(input_string);
 
     //если количество элементов строки некорректно (должно быть равно 7)
-    if (tokens.size() != 7)
+    if (string_elements.size() != 7)
     {
         return TOO_MANY_SYMBOLS;
     }
 
     //если строка не соответствует шаблону ввода
-    if (tokens[0] != "n" || tokens[1] != "=" || tokens[3] != "," || tokens[4] != "k" || tokens[5] != "=")
+    if (string_elements[0] != "n" || string_elements[1] != "=" || string_elements[3] != "," || string_elements[4] != "k" || string_elements[5] != "=")
     {
         return WRONG_INPUT;
     }
 
     //если элемент, с которого считывается значения для размера перестановки, пуст
-    if (tokens[2].empty())
+    if (string_elements[2].empty())
     {
         return NO_INT;
     }
 
     //если элемент, с которого считывается значения для размера перестановки, не равен целочисленному значению
-    for (char c : tokens[2])
+    for (char c : string_elements[2])
     {
         if (!isdigit(c))
         {
@@ -93,13 +93,13 @@ DataErrors validateInputData(string input_string, vector<string> tokens)
     }
 
     //если элемент, с которого считывается количество неподвижных точек в перестановке, пуст
-    if (tokens[6].empty())
+    if (string_elements[6].empty())
     {
         return NO_INT;
     }
 
     //если элемент, с которого считывается количество неподвижных точек в перестановке, не равен целочисленному значению
-    for (char c : tokens[6])
+    for (char c : string_elements[6])
     {
         if (!isdigit(c))
         {

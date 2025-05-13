@@ -28,7 +28,7 @@ bool readFile(ifstream& input_file, vector<string>& file_content);
 * \param[in] input_string - строка, которую необходимо разделить
 * \return контейнер со словами и символами, на которые была разбита строка
 */
-vector<string> tokenizeString(string& input_string);
+vector<string> splitString(string& input_string);
 
 /* функция для обработки строки на корректный ввод
 * \param[in] input_string - строка, которую мы проверяем на корректность
