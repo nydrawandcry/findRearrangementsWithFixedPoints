@@ -4,6 +4,57 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+namespace Microsoft
+{
+	namespace VisualStudio
+	{
+		namespace CppUnitTestFramework
+		{
+			//чтобы нормально работать с контейнерами(конвертация)
+			template<>
+			wstring ToString(const vector<vector<int>>& vec)
+			{
+				wstringstream ss;
+				ss << L"{";
+
+				for (size_t i = 0; i < vec.size(); ++i)
+				{
+					ss << L"{";
+					for (size_t j = 0; j < vec[i].size(); ++j)
+					{
+						ss << vec[i][j];
+						if (j < vec[i].size() - 1)
+						{
+							ss << L", ";
+						}
+					}
+					ss << L"}";
+					if (i < vec.size() - 1)
+					{
+						ss << L", ";
+					}
+				}
+				ss << L"}";
+				return ss.str();
+			}
+
+			template<>
+			static wstring ToString(const vector<int>& vec)
+			{
+				wstringstream ss;
+				ss << L"{";
+				for (size_t i = 0; i < vec.size(); ++i)
+				{
+					ss << vec[i];
+					if (i < vec.size() - 1) ss << L", ";
+				}
+				ss << L"}";
+				return ss.str();
+			}
+		}
+	}
+}
+
 namespace testgenerateRearrangements
 {
 	TEST_CLASS(testgenerateRearrangements)
