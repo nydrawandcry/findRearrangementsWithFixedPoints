@@ -126,7 +126,7 @@ DataErrors validateInputData(string input_string, vector<string> string_elements
     return NO_DATA_ERROR;
 }
 
-void generate_rearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
+void generateRearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
 {
     //Если перестановка уже полностью заполнена и в ней присутствует заданное количество неподвижных точек
     if (index == current_permutation.size())
@@ -166,7 +166,7 @@ void generate_rearrangements(vector<int>& current_permutation, int index, vector
         current_permutation[index] = i + 1;
 
         //Вызов рекурсии
-        generate_rearrangements(current_permutation, index + 1, used_elements, max_fixed_points, fixed_points_count + (is_fixed ? 1 : 0), generated_permutations);
+        generateRearrangements(current_permutation, index + 1, used_elements, max_fixed_points, fixed_points_count + (is_fixed ? 1 : 0), generated_permutations);
 
         //Откат для обхода и новых вариантов перестановки
         used_elements[i] = false;
