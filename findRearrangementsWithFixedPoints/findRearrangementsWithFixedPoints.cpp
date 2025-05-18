@@ -249,8 +249,16 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    //объявление необходимых данных
+    vector<int>current_permutation(permutation_size);
+    int index = 0;
+    vector<bool> used_elements;
+    int fixed_points_count = 0;
+    vector<vector<int>> generated_permutations;
+
     //вызов главной рекурсивной вычислительной функции
-    
+    generateRearrangements(current_permutation, index, used_elements, max_fixed_points, fixed_points_count, generated_permutations);
+
     // 
     // Открыть выходной файл
     // Проверить, что файл доступен для записи. Если доступен
