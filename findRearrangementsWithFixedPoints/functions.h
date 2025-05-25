@@ -47,3 +47,9 @@ DataErrors validateInputData(string input_string, vector<string> tokens);
 * \param[in] generated_permutations - контейнер с уже сгенерированными перестановками, который мы постоянно будем пополнять с каждым вызовом рекурсии
 */
 void generateRearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations);
+
+/*функция для записи ответа в выходной файл в предусмотренном условием формате
+* \param[in] generated_permutations - все сгенерированные перестановки, которые необходимо загрузить в файл
+* \param[in] output_file - выходной файл для записи в него ответа
+*/
+void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output_file);
