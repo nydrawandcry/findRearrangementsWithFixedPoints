@@ -177,40 +177,65 @@ void generateRearrangements(vector<int>& current_permutation, int index, vector<
 void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output_file)
 {
     //вывести количество сгенерированных перестановок в файл
+    output_file << generated_permutations.size() << endl;
 
     //для всех сгенерированных перестановок
+    for (const auto& output_permutation : generated_permutations)
     {
         //начало вывода перестановки: вывод открывающей квадратной скобки "["
+        output_file << "[";
 
         //вывод элементов перестановки через запятую
+        for (size_t i = 0; i < output_permutation.size(); ++i)
         {
+            if (i != 0)
+            {
+                output_file << ", ";
+            }
 
+            output_file << output_permutation[i];
         }
 
         //при окончании вывода перестановки закрываем скобки и ставим дефис для перечисления неподжвижных точек "] - "
-    
+        output_file << "] - ";
+
         //начинаем поиск всех неподвижных точек в выведенной перестановке
+        vector<int> output_fixed_points;
+
+        for (size_t i = 0; i < output_permutation.size(); ++i)
         {
             //если находим неподвижную точку 
+            if (output_permutation[i] == static_cast<int>(i) + 1)
             {
                 //добавляем ее в контейнер для неподвижных точек
+                output_fixed_points.push_back(output_permutation[i]);
             }
         }
 
         //если неподвижных точек в перестановке нет (не нашли)
+        if (output_fixed_points.empty())
         {
             //вывод "no fixed points" после выведенной перестановки
+            output_file << "no fixed points";
         }
         //иначе
+        else
         {
             //для всех неподвижных точек
+            for (size_t i = 0; i < output_fixed_points.size(); ++i)
             {
                 //выводим через запятую все неподвижные точки
+                if (i != 0)
+                {
+                    output_file << ", ";
+                }
+
+                output_file << output_fixed_points[i];
             }
-            
         }
     }
     //закрыть выходной файл
+    output_file.close();
 }
 
 int main(int argc, char* argv[])
