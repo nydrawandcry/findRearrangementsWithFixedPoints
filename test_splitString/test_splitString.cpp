@@ -4,6 +4,30 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+namespace Microsoft
+{
+	namespace VisualStudio
+	{
+		namespace CppUnitTestFramework
+		{
+			template<>
+			static wstring ToString(const vector<string>& vec)
+			{
+				wstringstream ss;
+				ss << L"{";
+				for (size_t i = 0; i < vec.size(); ++i)
+				{
+					ss << L"\"" << wstring(vec[i].begin(), vec[i].end()) << L"\"";
+					if (i < vec.size() - 1)
+						ss << L", ";
+				}
+				ss << L"}";
+				return ss.str();
+			}
+		}
+	}
+}
+
 namespace testsplitString
 {
 	TEST_CLASS(testsplitString)
