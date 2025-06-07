@@ -75,7 +75,7 @@ vector<string> splitString(string& input_string)
     return splited_string;
 }
 
-DataErrors validateInputData(string input_string, vector<string> string_elements)
+DataErrors validateInputData(string& input_string, vector<string>& string_elements)
 {
     //необходимо разбить строку на смиволы, слова и корректные разделители
     string_elements = splitString(input_string);

@@ -36,9 +36,9 @@ vector<string> splitString(string& input_string);
 * \return true - данные введены корректно
 * \return false - данные введены некорректно 
 */
-DataErrors validateInputData(string input_string, vector<string> tokens);
+DataErrors validateInputData(string& input_string, vector<string>& string_elements);
 
-/*рекурсивная главная вычислительная функция
+/* рекурсивная главная вычислительная функция
 * \param[in] current_permutation - текущая перестановка которую мы собираем
 * \param[in] index - позиция элемента которую мы рассматриваем на текущий момент
 * \param[in] used_elements - контейнер с уже использованными числами
