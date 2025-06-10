@@ -316,7 +316,7 @@ int main(int argc, char* argv[])
     //объявление необходимых данных
     vector<int>current_permutation(permutation_size);
     int index = 0;
-    vector<bool> used_elements;
+    vector<bool> used_elements(permutation_size, false);
     int fixed_points_count = 0;
     vector<vector<int>> generated_permutations;
 
