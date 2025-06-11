@@ -232,6 +232,9 @@ void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output
 
                 output_file << output_fixed_points[i];
             }
+
+            //начинаем вывод новой перестановки с новой строки
+            output_file << endl;
         }
     }
     //закрыть выходной файл
