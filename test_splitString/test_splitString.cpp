@@ -1,4 +1,9 @@
-﻿#include "pch.h"
+﻿/*!
+* \file
+* \brief Данный файл содержит тесты для функции splitString.
+*/
+
+#include "pch.h"
 #include "CppUnitTest.h"
 #include "../findRearrangementsWithFixedPoints/functions.h"
 
@@ -11,6 +16,11 @@ namespace Microsoft
 		namespace CppUnitTestFramework
 		{
 			template<>
+			/*!
+			* \brief Преобразует std::vector<std::string> в std::wstring для корректного отображения в тестах.
+			* \param [in] vec - Вектор строк, который нужно отобразить.
+			* \return Строковое представление вектора в формате { "str1", "str2", ... }.
+			*/
 			static wstring ToString(const vector<string>& vec)
 			{
 				wstringstream ss;
@@ -30,10 +40,17 @@ namespace Microsoft
 
 namespace testsplitString
 {
+	/*!
+	* \class testsplitString
+	* \brief Набор модульных тестов для функции splitString.
+	*/
 	TEST_CLASS(testsplitString)
 	{
 	public:
 		
+		/*!
+		* \brief Проверяет корректную обработку пустой строки.
+		*/
 		TEST_METHOD(EmptyStr)
 		{
 			string input_str = "";
@@ -44,6 +61,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что строка, состоящая только из букв, возвращается как один токен.
+		*/
 		TEST_METHOD(LettersOnly)
 		{
 			string input_str = "aaabbbccc";
@@ -56,6 +76,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что строка, состоящая только из цифр, возвращается как один токен.
+		*/
 		TEST_METHOD(NumbersOnly)
 		{
 			string input_str = "17569";
@@ -68,6 +91,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что функция корректно обрабатывает пробелы.
+		*/
 		TEST_METHOD(CorrectSeparators)
 		{
 			string input_str = " f f ";
@@ -80,6 +106,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что функция корректно обрабатывает разделители различного вида.
+		*/
 		TEST_METHOD(IncorrectSeparators)
 		{
 			string input_str = "\t-_;:?";
@@ -92,6 +121,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что функция обрабатывает буквы разных регистров.
+		*/
 		TEST_METHOD(HighCase)
 		{
 			string input_str = "AdSghD";
@@ -104,6 +136,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что функция корректно обрабатывает строку с правильно введенными входными данными.
+		*/
 		TEST_METHOD(CorrectInput)
 		{
 			string input_str = "n=5, k=3";
@@ -117,6 +152,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что функция корректно выделяет подстроку, являющейся двузначным целым числом.
+		*/
 		TEST_METHOD(TwoDigitNumber)
 		{
 			string input_str = "n=9, k=20";
@@ -129,6 +167,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Проверяет, что функция корректно разделяет строку со специальными символами.
+		*/
 		TEST_METHOD(SpecialCharactersInInput)
 		{
 			string input_str = "n#=5, k=0";
@@ -141,6 +182,9 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
+		/*!
+		* \brief Комплексный тест с разными видами проверок.
+		*/
 		TEST_METHOD(ComplexTest)
 		{
 			string input_str = "n_2=32, k=@43";

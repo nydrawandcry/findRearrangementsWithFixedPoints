@@ -1,7 +1,36 @@
+/*!
+* \file
+* \brief Данный файл содержит главную функцию программы findRearrangementsWithFixedPoints.
+*
+* \mainpage Документация для программы "Find Rearrangements With Fixed Points (findRearrangementsWithFixedPoints)"
+Программа предназначена для нахождения количества перестановок размера n с учетом возможного присутствия неподвижных точек количества k в любом их расположении.
+Для функционирования программы необходима операционная система Windows 7 или выше.
+Программа разработана на языке С++ с использованием стандартных библиотек C++ в среде разработки Microsoft Visual Studio.
+Программа должна получать два аргумента командной строки: имя входного файла и имя выходного файла в формате 'txt'
+
+Пример команды запуска программы:
+* \code
+./findRearrangementsWithFixedPoints.exe ./input.txt ./output.txt
+* \endcode
+
+* \author Anastasia Igrunova
+* \date June 2025
+* \version 1.0
+*/
+
 #include <iostream>
 #include <locale>
 #include "functions.h"
 
+/*!
+ * \brief Главная функция программы
+ * \param [in] argc - количество переданных аргументов командной строки
+ * \param [in] argv - аргументы командной строки
+ * \param [in] argv[0] - аргумент запуска программы
+ * \param [in] argv[1] - путь к входному файлу
+ * \param [in] argv[2] - путь к выходному файлу
+ * \return 0 - программа завершилась без исключений
+ */
 int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "Rus");

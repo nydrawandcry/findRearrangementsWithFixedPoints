@@ -1,12 +1,18 @@
-﻿#include <iostream>
+﻿/*!
+* \file
+* \brief Данный файл содержит в себе реализацию функций, которые используются в ходе работы программы findRearrangementsWithFixedPoints.
+*/
+
 #include <vector>
 #include <fstream>
-#include <locale>
 #include <string>
 #include "functions.h"
 
 using namespace std;
 
+/*!
+ * \details Читает построчно данные из файла
+ */
 bool readFile(ifstream& input_file, vector<string>& file_content)
 {
     string input_line;
@@ -30,6 +36,9 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
     return false;
 }
 
+/*!
+ * \details Разбивает строку на подстроки: целые числа, символы и разделители, предусмотренные условием оформления входных данных(',', ' ', '=').
+ */
 vector<string> splitString(string& input_string)
 {
     vector<string> splited_string;
@@ -75,6 +84,9 @@ vector<string> splitString(string& input_string)
     return splited_string;
 }
 
+/*!
+ * \details Проверяет строку на соответствие шаблону: n=<целое число>, k=<целое число>.
+ */
 DataErrors validateInputData(string& input_string, vector<string>& string_elements)
 {
     //необходимо разбить строку на смиволы, слова и корректные разделители
@@ -126,6 +138,9 @@ DataErrors validateInputData(string& input_string, vector<string>& string_elemen
     return NO_DATA_ERROR;
 }
 
+/*!
+ * \details Рекурсивно генерирует все допустимые перестановки заданного размера с заданным числом неподвижных точек.
+ */
 void generateRearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
 {
     //Если перестановка уже полностью заполнена и в ней присутствует заданное количество неподвижных точек
@@ -174,6 +189,9 @@ void generateRearrangements(vector<int>& current_permutation, int index, vector<
 
 }
 
+/*!
+ * \details Выводит все сгенерованные перестановки в выходной файл по шаблону: [n1, n2... n](перестановка) - k1, k2, ... k (неподвижные точки) или no fixed points(отсутствие неподвижных точек).
+ */
 void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output_file)
 {
     //вывести количество сгенерированных перестановок в файл

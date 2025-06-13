@@ -1,4 +1,9 @@
-﻿#include "pch.h"
+﻿/*!
+* \file
+* \brief Данный файл содержит тесты для функции generateRearrangements.
+*/
+
+#include "pch.h"
 #include "CppUnitTest.h"
 #include "../findRearrangementsWithFixedPoints/functions.h"
 
@@ -10,8 +15,12 @@ namespace Microsoft
 	{
 		namespace CppUnitTestFramework
 		{
-			//чтобы нормально работать с контейнерами(конвертация)
 			template<>
+			/*!
+			* \brief Преобразует std::vector<std::vector<int>> в std::wstring для корректного отображения в тестах.
+			* \param [in] vec - Вектор векторов целых чисел, который нужно отобразить.
+			* \return Строковое представление вектора в формате { {int1, int2, ...}, {int1, int2, ...}, ... }.
+			*/
 			wstring ToString(const vector<vector<int>>& vec)
 			{
 				wstringstream ss;
@@ -39,6 +48,11 @@ namespace Microsoft
 			}
 
 			template<>
+			/*!
+			* \brief Преобразует std::vector<int> в std::wstring для корректного отображения в тестах.
+			* \param [in] vec - Вектор целых чисел, который нужно отобразить.
+			* \return Строковое представление вектора в формате { int1, int2, ... }.
+			*/
 			static wstring ToString(const vector<int>& vec)
 			{
 				wstringstream ss;
@@ -57,10 +71,17 @@ namespace Microsoft
 
 namespace testgenerateRearrangements
 {
+	/*!
+	* \class testgenerateRearrangements
+	* \brief Набор модульных тестов для функции generate_rearrangements.
+	*/
 	TEST_CLASS(testgenerateRearrangements)
 	{
 	public:
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с одной неподвижной точкой.
+		*/
 		TEST_METHOD(OneFixedPoint)
 		{
 			int n = 3;
@@ -85,6 +106,9 @@ namespace testgenerateRearrangements
 
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с двумя неподвижными точками.
+		*/
 		TEST_METHOD(SeveralFixedPoints)
 		{
 			int n = 5;
@@ -125,6 +149,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с одной неподвижной точкой и средним количеством неподвижных точек.
+		*/
 		TEST_METHOD(SeveralElementsInThePermutation)
 		{
 			int n = 4;
@@ -153,6 +180,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с максимально возможным количеством элементов в перестановке.
+		*/
 		TEST_METHOD(MaxElementsInThePerm)
 		{
 			int n = 9;
@@ -170,6 +200,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с максимально возможным количеством неподвижных точек.
+		*/
 		TEST_METHOD(OnePermutationCauseMaxFixedPts)
 		{
 			int n = 5;
@@ -191,6 +224,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию одной перестановки(т.к. минимальное количество элементов)
+		*/
 		TEST_METHOD(OnePermutationCauseOneElementInThePerm)
 		{
 			int n = 1;
@@ -212,6 +248,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с количеством элементов перестановки, равным 6.
+		*/
 		TEST_METHOD(SeveralPermutations)
 		{
 			int n = 6;
@@ -247,6 +286,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с максимально возможным количеством элементов перестановки и минимальном количеством неподвижных точек.
+		*/
 		TEST_METHOD(MaxPermutationsWithMaxElements)
 		{
 			int n = 9;
@@ -264,6 +306,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с количеством элементов перестановки, равным 2.
+		*/
 		TEST_METHOD(TwoElementsInPerm)
 		{
 			int n = 2;
@@ -285,6 +330,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с количеством элементов перестановки, равным 7.
+		*/
 		TEST_METHOD(SevenElementsInPerm)
 		{
 			int n = 7;
@@ -302,6 +350,9 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
+		/*!
+		* \brief Проверяет функцию на генерацию перестановок с количеством элементов перестановки, равным 8.
+		*/
 		TEST_METHOD(EightElementsInPerm)
 		{
 			int n = 8;
