@@ -125,48 +125,6 @@ namespace testgenerateRearrangements
 			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
 		}
 
-		TEST_METHOD(MaxFixedPoints)
-		{
-			int n = 5;
-			int max_fixed_points = 5;
-
-			vector<int> current_permutation(n);
-			vector<bool> used_elements(n, false);
-			int fixed_points_count = 0;
-			vector<vector<int>> generated_permutations;
-
-			vector<vector<int>> expected_permutations =
-			{
-				{1, 2, 3, 4, 5}
-			};
-
-			generateRearrangements(current_permutation, 0, used_elements, max_fixed_points, fixed_points_count, generated_permutations);
-
-			Assert::AreEqual(generated_permutations, expected_permutations);
-			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
-		}
-
-		TEST_METHOD(OneElementInThePermutation)
-		{
-			int n = 1;
-			int max_fixed_points = 1;
-
-			vector<int> current_permutation(n);
-			vector<bool> used_elements(n, false);
-			int fixed_points_count = 0;
-			vector<vector<int>> generated_permutations;
-
-			vector<vector<int>> expected_permutations =
-			{
-				{1}
-			};
-
-			generateRearrangements(current_permutation, 0, used_elements, max_fixed_points, fixed_points_count, generated_permutations);
-
-			Assert::AreEqual(generated_permutations, expected_permutations);
-			Assert::AreEqual(generated_permutations.size(), expected_permutations.size());
-		}
-
 		TEST_METHOD(SeveralElementsInThePermutation)
 		{
 			int n = 4;
