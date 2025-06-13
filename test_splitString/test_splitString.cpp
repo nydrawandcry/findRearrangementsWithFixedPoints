@@ -68,7 +68,7 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
-		TEST_METHOD(CorrectSeparatots)
+		TEST_METHOD(CorrectSeparators)
 		{
 			string input_str = " f f ";
 			vector<string> expected_str =
@@ -80,7 +80,7 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
-		TEST_METHOD(IncorrectSeparatots)
+		TEST_METHOD(IncorrectSeparators)
 		{
 			string input_str = "\t-_;:?";
 			vector<string> expected_str =
@@ -129,7 +129,7 @@ namespace testsplitString
 			Assert::AreEqual(expected_str, splited_str);
 		}
 
-		TEST_METHOD(InputError)
+		TEST_METHOD(SpecialCharactersInInput)
 		{
 			string input_str = "n#=5, k=0";
 			vector<string> expected_str =
