@@ -155,15 +155,15 @@ namespace testgenerateRearrangements
 
 		TEST_METHOD(MaxElementsInThePerm)
 		{
-			int n = 4;
-			int max_fixed_points = 1;
+			int n = 9;
+			int max_fixed_points = 5;
 
 			vector<int> current_permutation(n);
 			vector<bool> used_elements(n, false);
 			int fixed_points_count = 0;
 			vector<vector<int>> generated_permutations;
 
-			vector<vector<int>> expected_permutations(8);
+			vector<vector<int>> expected_permutations(1134);
 
 			generateRearrangements(current_permutation, 0, used_elements, max_fixed_points, fixed_points_count, generated_permutations);
 
