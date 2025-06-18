@@ -235,6 +235,9 @@ void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output
         {
             //вывод "no fixed points" после выведенной перестановки
             output_file << "no fixed points";
+
+            //начинаем вывод новой перестановки с новой строки
+            output_file << endl;
         }
         //иначе
         else
