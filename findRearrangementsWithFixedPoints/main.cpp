@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
     int max_fixed_points = stoi(splited_string[6]);
 
     //проверка на корректный диапазон значений
-    if (max_fixed_points > permutation_size || (permutation_size == 1 && max_fixed_points != 0))
+    if (max_fixed_points > permutation_size || (permutation_size == 1 && max_fixed_points != 1))
     {
         cerr << "Значения вне допустимого диапазона.\nУбедитесь, что значения входят в диапазон:\n1<=n<=9\n0<=k<=n\n" << endl;
         return 1;
