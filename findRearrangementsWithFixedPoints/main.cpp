@@ -76,22 +76,9 @@ int main(int argc, char* argv[])
 
     DataErrors check_input = validateInputData(file_content[0], splited_string);
 
-    if (check_input == TOO_MANY_SYMBOLS)
+    //если после валидации строки была выявлена ошибка, завершаем работу программы и выводим ошибку в консоль
+    if (!checkValidationResult(check_input, splited_string)) 
     {
-        cerr << "Некорректное количество элементов в строке. \nОжидаемое количество: 7 \nПолученное количество: " << splited_string.size() << endl;
-
-        return 1;
-    }
-    else if (check_input == WRONG_INPUT)
-    {
-        cerr << "Строка с данными не соответствует шаблону \"n = <число>, k = <число>\". Введите корректную строку. " << endl;
-
-        return 1;
-    }
-    else if (check_input == NO_INT)
-    {
-        cerr << "Значения переменных не целые числа. \nВведите значения переменных в формате целого числа" << endl;
-
         return 1;
     }
 

@@ -51,6 +51,15 @@ vector<string> splitString(string& input_string);
 DataErrors validateInputData(string& input_string, vector<string>& string_elements);
 
 /*!
+* \brief Функция, проверяющая результат валидации входной строки с параметрами
+* \param [in] error - тип ошибки валидации входной строки
+* \param [in] splited_string - входная строка, обработанная для валидации
+* \return true - строка соответствует условиям ввода
+* \return false - строка не соответствует условиям ввода
+*/
+bool checkValidationResult(DataErrors error, const vector<string>& splited_string);
+
+/*!
 * \brief Функция, находящая всевозможные перестановки с неподвижными точками заданного размера и количества соответственно
 * \param [in] current_permutation - текущая перестановка которую мы собираем
 * \param [in] index - позиция элемента которую мы рассматриваем на текущий момент

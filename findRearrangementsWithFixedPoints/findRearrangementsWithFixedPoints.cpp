@@ -139,6 +139,34 @@ DataErrors validateInputData(string& input_string, vector<string>& string_elemen
 }
 
 /*!
+* \details Проверяет результат работы функции validateInputData на все предусмотренные типы ошибок и при ошибке выводит её в консоль
+*/
+bool checkValidationResult(DataErrors error, const vector<string>& splited_string)
+{
+    switch (error) 
+    {
+    case TOO_MANY_SYMBOLS:
+
+        cerr << "Ожидаемое количество элементов: 7. Получено: " << splited_string.size() << '\n';
+        return false;
+
+    case WRONG_INPUT:
+
+        cerr << "Строка не соответствует шаблону \"n = <число>, k = <число>\".\n";
+        return false;
+
+    case NO_INT:
+
+        cerr << "Значения не являются целыми числами.\n";
+        return false;
+
+    default:
+
+        return true;
+    }
+}
+
+/*!
  * \details Рекурсивно генерирует все допустимые перестановки заданного размера с заданным числом неподвижных точек.
  */
 void generateRearrangements(vector<int>& current_permutation, int index, vector<bool>& used_elements, int max_fixed_points, int fixed_points_count, vector<vector<int>>& generated_permutations)
