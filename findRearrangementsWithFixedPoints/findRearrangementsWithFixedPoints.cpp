@@ -85,6 +85,14 @@ vector<string> splitString(string& input_string)
 }
 
 /*!
+* \detailes Проверяет определенно расположенные элементы строки на то, являются ли они целыми числами
+*/
+bool isInt(const string& str)
+{
+    return !str.empty() && all_of(str.begin(), str.end(), ::isdigit);
+}
+
+/*!
  * \details Проверяет строку на соответствие шаблону: n=<целое число>, k=<целое число>.
  */
 DataErrors validateInputData(string& input_string, vector<string>& string_elements)
@@ -104,34 +112,9 @@ DataErrors validateInputData(string& input_string, vector<string>& string_elemen
         return WRONG_INPUT;
     }
 
-    //если элемент, с которого считывается значения для размера перестановки, пуст
-    if (string_elements[2].empty())
+    if (!isInt(string_elements[2]) || !isInt(string_elements[6]))
     {
         return NO_INT;
-    }
-
-    //если элемент, с которого считывается значения для размера перестановки, не равен целочисленному значению
-    for (char c : string_elements[2])
-    {
-        if (!isdigit(c))
-        {
-            return NO_INT;
-        }
-    }
-
-    //если элемент, с которого считывается количество неподвижных точек в перестановке, пуст
-    if (string_elements[6].empty())
-    {
-        return NO_INT;
-    }
-
-    //если элемент, с которого считывается количество неподвижных точек в перестановке, не равен целочисленному значению
-    for (char c : string_elements[6])
-    {
-        if (!isdigit(c))
-        {
-            return NO_INT;
-        }
     }
 
     //если все хорошо, считаем, что строка обработана успешно и всё корректно

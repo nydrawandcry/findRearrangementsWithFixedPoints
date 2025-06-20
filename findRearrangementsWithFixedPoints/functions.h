@@ -8,6 +8,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -40,6 +41,14 @@ bool readFile(ifstream& input_file, vector<string>& file_content);
 * \return контейнер с символами, на которые была разбита строка
 */
 vector<string> splitString(string& input_string);
+
+/*!
+* \brief Функция, проверяющая элемент строки, является ли он целым числом
+* \param [in] str - проверяемый элемент
+* \return true - элемент является числом
+* \return false - элемент не является числом
+*/
+bool isInt(const string& str);
 
 /*!
 * \brief Функция, обрабатывающая строку с входными данными
