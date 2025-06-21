@@ -95,7 +95,7 @@ bool isInt(const string& str)
 /*!
  * \details Проверяет строку на соответствие шаблону: n=<целое число>, k=<целое число>.
  */
-DataErrors validateInputData(string& input_string, vector<string>& string_elements)
+DataErrors validateInputData(const string& input_string, vector<string>& string_elements)
 {
     //необходимо разбить строку на смиволы, слова и корректные разделители
     string_elements = splitString(input_string);

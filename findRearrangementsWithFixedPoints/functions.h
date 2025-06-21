@@ -57,7 +57,7 @@ bool isInt(const string& str);
 * \return true - данные введены корректно
 * \return false - данные введены некорректно
 */
-DataErrors validateInputData(string& input_string, vector<string>& string_elements);
+DataErrors validateInputData(const string& input_string, vector<string>& string_elements);
 
 /*!
 * \brief Функция, проверяющая результат валидации входной строки с параметрами
