@@ -42,7 +42,7 @@ namespace Microsoft
 				{
 				case NO_DATA_ERROR:
 					return L"NO_DATA_ERROR";
-				case TOO_MANY_SYMBOLS:
+				case WRONG_SYMBOL_COUNT:
 					return L"WRONG_SYMBOL_COUNT";
 				case NO_INT:
 					return L"NO_INT";
@@ -78,7 +78,7 @@ namespace testvalidateInputData
 			vector<string> string_elements = {};
 
 			DataErrors errortype = validateInputData(input_string, string_elements);
-			DataErrors exp_errortype = TOO_MANY_SYMBOLS;
+			DataErrors exp_errortype = WRONG_SYMBOL_COUNT;
 
 			Assert::AreEqual(exp_errortype, errortype);
 		}
@@ -100,7 +100,7 @@ namespace testvalidateInputData
 			vector<string> string_elements = {};
 
 			DataErrors errortype = validateInputData(input_string, string_elements);
-			DataErrors exp_errortype = TOO_MANY_SYMBOLS;
+			DataErrors exp_errortype = WRONG_SYMBOL_COUNT;
 
 			Assert::AreEqual(exp_errortype, errortype);
 		}
@@ -122,7 +122,7 @@ namespace testvalidateInputData
 			vector<string> string_elements = {};
 
 			DataErrors errortype = validateInputData(input_string, string_elements);
-			DataErrors exp_errortype = TOO_MANY_SYMBOLS;
+			DataErrors exp_errortype = WRONG_SYMBOL_COUNT;
 
 			Assert::AreEqual(exp_errortype, errortype);
 		}
@@ -133,7 +133,7 @@ namespace testvalidateInputData
 			vector<string> string_elements = {};
 
 			DataErrors errortype = validateInputData(input_string, string_elements);
-			DataErrors exp_errortype = TOO_MANY_SYMBOLS;
+			DataErrors exp_errortype = WRONG_SYMBOL_COUNT;
 
 			Assert::AreEqual(exp_errortype, errortype);
 		}

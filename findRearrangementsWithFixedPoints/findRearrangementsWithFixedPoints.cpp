@@ -103,7 +103,7 @@ DataErrors validateInputData(string& input_string, vector<string>& string_elemen
     //если количество элементов строки некорректно (должно быть равно 7)
     if (string_elements.size() != 7)
     {
-        return TOO_MANY_SYMBOLS;
+        return WRONG_SYMBOL_COUNT;
     }
 
     //если строка не соответствует шаблону ввода
@@ -128,7 +128,7 @@ bool checkValidationResult(DataErrors error, const vector<string>& splited_strin
 {
     switch (error) 
     {
-    case TOO_MANY_SYMBOLS:
+    case WRONG_SYMBOL_COUNT:
 
         cerr << "Ожидаемое количество элементов: 7. Получено: " << splited_string.size() << '\n';
         return false;
