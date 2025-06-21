@@ -16,3 +16,8 @@
 /test_splitString/test_splitString.vcxproj
 /test_splitString/test_splitString.vcxproj.filters
 /test_splitString/test_splitString.vcxproj.user
+
+/test_validateInputData/x64
+/test_validateInputData/test_validateInputData.vcxproj
+/test_validateInputData/test_validateInputData.vcxproj.filters
+/test_validateInputData/test_validateInputData.vcxproj.user
