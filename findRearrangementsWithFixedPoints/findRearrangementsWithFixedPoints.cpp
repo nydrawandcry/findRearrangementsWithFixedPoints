@@ -39,7 +39,7 @@ bool readFile(ifstream& input_file, vector<string>& file_content)
 /*!
  * \details Разбивает строку на подстроки: целые числа, символы и разделители, предусмотренные условием оформления входных данных(',', ' ', '=').
  */
-vector<string> splitString(string& input_string)
+vector<string> splitString(const string& input_string)
 {
     vector<string> splited_string;
     string current_symbol;
@@ -203,7 +203,7 @@ void generateRearrangements(vector<int>& current_permutation, int index, vector<
 /*!
  * \details Выводит все сгенерованные перестановки в выходной файл по шаблону: [n1, n2... n](перестановка) - k1, k2, ... k (неподвижные точки) или no fixed points(отсутствие неподвижных точек).
  */
-void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output_file)
+void recOutputFile(const vector<vector<int>>& generated_permutations, ofstream& output_file)
 {
     //вывести количество сгенерированных перестановок в файл
     output_file << generated_permutations.size() << endl;

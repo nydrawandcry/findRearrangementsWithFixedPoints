@@ -40,7 +40,7 @@ bool readFile(ifstream& input_file, vector<string>& file_content);
 * \param [in] input_data - строка, которую необходимо разбить на символы
 * \return контейнер с символами, на которые была разбита строка
 */
-vector<string> splitString(string& input_string);
+vector<string> splitString(const string& input_string);
 
 /*!
 * \brief Функция, проверяющая элемент строки, является ли он целым числом
@@ -84,4 +84,4 @@ void generateRearrangements(vector<int>& current_permutation, int index, vector<
 * \param [in] generated_permutations - все сгенерированные перестановки, которые нужно записать в выходной файл
 * \param [in] output_file - выходной файл, в которые записываются данные
 */
-void recOutputFile(vector<vector<int>>& generated_permutations, ofstream& output_file);
+void recOutputFile(const vector<vector<int>>& generated_permutations, ofstream& output_file);
