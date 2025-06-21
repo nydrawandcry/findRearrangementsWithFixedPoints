@@ -4,6 +4,57 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+namespace Microsoft
+{
+	namespace VisualStudio
+	{
+		namespace CppUnitTestFramework
+		{
+			template<>
+			/*!
+			* \brief Преобразует std::vector<std::string> в std::wstring для корректного отображения в тестах.
+			* \param [in] vec - Вектор строк, который нужно отобразить.
+			* \return Строковое представление вектора в формате { "str1", "str2", ... }.
+			*/
+			static wstring ToString(const vector<string>& vec)
+			{
+				wstringstream ss;
+				ss << L"{";
+				for (size_t i = 0; i < vec.size(); ++i)
+				{
+					ss << L"\"" << wstring(vec[i].begin(), vec[i].end()) << L"\"";
+					if (i < vec.size() - 1)
+						ss << L", ";
+				}
+				ss << L"}";
+				return ss.str();
+			}
+
+			template<>
+			/*!
+			* \brief Преобразует DataErrors в std::wstring для корректного отображения в тестах.
+			* \param [in] e - тип ошибки, которую нужно отобразить.
+			* \return Строковое представление ошибки.
+			*/
+			static std::wstring ToString<DataErrors>(const DataErrors& e)
+			{
+				switch (e)
+				{
+				case NO_DATA_ERROR:
+					return L"NO_DATA_ERROR";
+				case TOO_MANY_SYMBOLS:
+					return L"WRONG_SYMBOL_COUNT";
+				case NO_INT:
+					return L"NO_INT";
+				case WRONG_INPUT:
+					return L"WRONG_INPUT";
+				default:
+					return L"UNKNOWN_ERROR";
+				}
+			}
+		}
+	}
+}
 namespace testvalidateInputData
 {
 	TEST_CLASS(testvalidateInputData)
